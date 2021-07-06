@@ -1,35 +1,37 @@
 <template>
   <div class="login-wrap">
     <p>{{ result }}</p>
-    <input type="text" placeholder="ID">
-    <input type="text" placeholder="パスワード">
-    <button @click="loginFunction()" type="submit" class="">ログイン</button>
+    <input v-model="uuid" type="text" placeholder="秘密のかぎ">
+    <button @click="loginFunction()" type="submit" class="green">ログイン</button>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      result: '',
-    }
-  },
-  
-  methods: {
-    async loginFunction () {
-      try {
-        const response = await this.$auth.loginWith('laravelJWT', { data: { local_uuid: 'SHJJRfOmS1oFPEk00JJKqvXEKCmF50UFrZMYWglbftQqHNFd9vrEK13PEklMQuIG' } });
-        console.log('ログインできた〜！');
-        console.log(response);
-        this.$router.push('/')
-      }catch (error) {
-        console.log(error);
-        this.result = 'ログインに失敗しました'
+  export default {
+    data () {
+      return {
+        result: '',
+        uuid: '',
       }
     },
     
-    // ↑のように.thenで書かれていた処理をasyncとawaitで書き直すのに慣れるとよい(順番に処理してくれる＆ぱっと見わかりやすい)
+    methods: {
+      async loginFunction () {
+        try {
+          const response = await this.$auth.loginWith('laravelJWT', { data: { local_uuid: this.uuid } });
+          console.log('ログインできた〜！');
+          console.log(response);
+          this.$router.push('/')
+        }catch (error) {
+          console.log(error);
+          this.result = 'ログインに失敗しました'
+        }
+      },
+      
+      // ↑のように.thenで書かれていた処理をasyncとawaitで書き直すのに慣れるとよい(順番に処理してくれる＆ぱっと見わかりやすい)
     // tryは字のとおり順番に試してみてくれる、だめだったら「だめです！」をcatchしてくれる
+    
+    // uuidのメモ：SHJJRfOmS1oFPEk00JJKqvXEKCmF50UFrZMYWglbftQqHNFd9vrEK13PEklMQuIG
   
     // async formLogin () {
     //   axios.post()
@@ -60,15 +62,5 @@ export default {
     height: 2rem;
     padding: 0 10px;
     margin-bottom: 10px;
-  }
-  button {
-    color: #fff;
-    background-color: #00cd81;
-    border: none;
-    border-radius: 20px;
-    padding: .5rem 2rem;
-  }
-  button:hover {
-    opacity: .8;
   }
 </style>

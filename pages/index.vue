@@ -1,7 +1,7 @@
 <template>
   <div class="content-wrap">
     <p>君は会員だ！</p>
-    <button @click="logoutFunction()">ログアウトする</button>
+    <button @click="logoutFunction()" class="green">ログアウトする</button>
   </div>
 </template>
 
@@ -21,15 +21,5 @@ export default {
     display: flex;
     flex-flow: column;
     align-items: center;
-  }
-  button {
-    color: #fff;
-    background-color: #00cd81;
-    border: none;
-    border-radius: 20px;
-    padding: .5rem 2rem;
-  }
-  button:hover {
-    opacity: .8;
   }
 </style>
