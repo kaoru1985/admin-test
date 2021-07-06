@@ -9,6 +9,9 @@
         border-radius: 20px;
         padding: .5rem 2rem;
     }
+    button:disabled {
+        background-color: #B1CCC2;
+    }
     button:hover {
         opacity: .8;
     }

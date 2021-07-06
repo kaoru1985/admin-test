@@ -2,7 +2,7 @@
   <div class="login-wrap">
     <p>{{ result }}</p>
     <input v-model="uuid" type="text" placeholder="秘密のかぎ">
-    <button @click="loginFunction()" type="submit" class="green">ログイン</button>
+    <button :disabled="isPush" @click="loginFunction()" type="submit" class="green">ログイン</button>
   </div>
 </template>
 
@@ -12,18 +12,21 @@
       return {
         result: '',
         uuid: '',
+        isPush: false,
       }
     },
     
     methods: {
       async loginFunction () {
         try {
+          this.isPush = true;
           const response = await this.$auth.loginWith('laravelJWT', { data: { local_uuid: this.uuid } });
           console.log('ログインできた〜！');
           console.log(response);
           this.$router.push('/')
         }catch (error) {
           console.log(error);
+          this.isPush = false;
           this.result = 'ログインに失敗しました'
         }
       },
