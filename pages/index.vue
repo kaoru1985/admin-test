@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrap">
-    <p>君は会員だ！</p>
+    <p>君は管理者だ！</p>
     <button @click="logoutFunction()" class="green">ログアウトする</button>
   </div>
 </template>

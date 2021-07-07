@@ -21,7 +21,6 @@
         try {
           this.isPush = true;
           const response = await this.$auth.loginWith('laravelJWT', { data: { local_uuid: this.uuid } });
-          console.log('ログインできた〜！');
           console.log(response);
           this.$router.push('/')
         }catch (error) {
@@ -31,7 +30,7 @@
         }
       },
       
-      // ↑のように.thenで書かれていた処理をasyncとawaitで書き直すのに慣れるとよい(順番に処理してくれる＆ぱっと見わかりやすい)
+    // ↑のように.thenで書かれていた処理をasyncとawaitで書き直すのに慣れるとよい(順番に処理してくれる＆ぱっと見わかりやすい)
     // tryは字のとおり順番に試してみてくれる、だめだったら「だめです！」をcatchしてくれる
     
     // uuidのメモ：SHJJRfOmS1oFPEk00JJKqvXEKCmF50UFrZMYWglbftQqHNFd9vrEK13PEklMQuIG
