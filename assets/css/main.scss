@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    li {
+        font-size: 18px;
+        a {
+            display: block;
+            padding-left: 2rem;
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+}
+button {
+    &.button_green {
+        color: #fff;
+        background-color: #00cd81;
+        border: none;
+        border-radius: 20px;
+        padding: .5rem 2rem;
+    }
+    &.button_normal {
+        background-color: initial;
+        border: none;
+    }
+    &:disabled {
+        background-color: #B1CCC2;
+    }
+    &:hover {
+        opacity: .8;
+    }
+}
+.customer_list {
+    li {
+        font-size: 14px;
+    }
+}
+

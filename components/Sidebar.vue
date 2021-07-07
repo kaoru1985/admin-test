@@ -1,29 +1,31 @@
 <template>
   <nav>
     <ul>
-      <li><a href="">管理者トップ</a></li>
-      <li><a href="">メニューその1</a></li>
-      <li><a href="">メニューその2</a></li>
-      <li><a href="">メニューその3</a></li>
+      <li><NuxtLink to='/'>管理者トップ</NuxtLink></li>
+      <li><NuxtLink to='/customer'>お客様情報</NuxtLink></li>
+      <li><NuxtLink to='/abc'>メニューその2</NuxtLink></li>
+      <li><NuxtLink to='/abc'>メニューその3</NuxtLink></li>
     </ul>
   </nav>
 </template>
 
 <style>
   nav {
-    width: 20%;
+    width: 240px;
     height: calc(100vh - 50px);
     color: #fff;
     background-color: #343434;
     
   }
-  ul {
-    list-style: none;
-  }
   li {
-    height: 50px;
+    height: 64px;
+    line-height: 64px;
   }
   a {
     color: #fff;
+  }
+  li a.nuxt-link-exact-active {
+    background-color: #666;
+    pointer-events: none;
   }
 </style>
