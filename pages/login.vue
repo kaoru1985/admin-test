@@ -2,7 +2,7 @@
   <div class="login-wrap">
     <p>{{ result }}</p>
     <input v-model="uuid" type="text" placeholder="秘密のかぎ">
-    <button :disabled="isPush" @click="loginFunction()" type="submit" class="green">ログイン</button>
+    <button :disabled="isPush" @click="loginFunction()" type="submit" class="button_green">ログイン</button>
   </div>
 </template>
 

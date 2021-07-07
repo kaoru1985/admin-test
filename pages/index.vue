@@ -1,23 +1,17 @@
 <template>
-  <div class="content-wrap">
+  <div class="content">
     <p>君は管理者だ！</p>
-    <button @click="logoutFunction()" class="green">ログアウトする</button>
   </div>
 </template>
-
 <script>
-export default {
-  methods: {
-     async logoutFunction () {
-       await this.$auth.logout('laravelJWT');
-       this.$router.push('/login')
-     }
+  export default {
+    layout: 'menu'
   }
-}
 </script>
+
 <style>
-  .content-wrap {
-    margin-top: 50px;
+  .content {
+    padding: 20px;
     display: flex;
     flex-flow: column;
     align-items: center;
